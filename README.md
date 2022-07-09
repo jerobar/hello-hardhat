@@ -2,6 +2,8 @@
 
 Hardhat unit tests for assignments from week 3 and 4. The 90% branch coverage of `NumbersToken.sol` below may be a mistake.
 
+Output of `npx hardhat coverage`:
+
 ```shell
 -------------------------------|----------|----------|----------|----------|----------------|
 File                           |  % Stmts | % Branch |  % Funcs |  % Lines |Uncovered Lines |
