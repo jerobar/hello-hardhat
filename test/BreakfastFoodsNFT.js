@@ -37,6 +37,7 @@ describe('BreakfastFoodsNFT', function () {
         deployBreakfastFoodsNFT
       )
 
+      // Test name equals 'BreakfastFoods'
       expect(await breakfastFoodsNftContract.name()).to.equal('BreakfastFoods')
     })
 
@@ -45,6 +46,7 @@ describe('BreakfastFoodsNFT', function () {
         deployBreakfastFoodsNFT
       )
 
+      // Test symbol equals 'BRKFST'
       expect(await breakfastFoodsNftContract.symbol()).to.equal('BRKFST')
     })
 
@@ -53,6 +55,7 @@ describe('BreakfastFoodsNFT', function () {
         deployBreakfastFoodsNFT
       )
 
+      // Test token supply equals 0
       expect(await breakfastFoodsNftContract.tokenSupply()).to.equal(0)
     })
 
@@ -61,6 +64,7 @@ describe('BreakfastFoodsNFT', function () {
         deployBreakfastFoodsNFT
       )
 
+      // Test max token supply equals 10
       expect(await breakfastFoodsNftContract.MAX_TOKEN_SUPPLY()).to.equal(10)
     })
   })
@@ -76,6 +80,7 @@ describe('BreakfastFoodsNFT', function () {
         deployTestBreakfastFoodsNFT
       )
 
+      // Test _baseURI returns 'ipfs://QmaPrXV1mGXxNKyyuSjBKDAwwfmjYbkDn5wvDWMaKSWg9M/'
       expect(await testBreakfastFoodsNftContract.test_baseURI()).to.equal(
         'ipfs://QmaPrXV1mGXxNKyyuSjBKDAwwfmjYbkDn5wvDWMaKSWg9M/'
       )
