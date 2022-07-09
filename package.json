@@ -1,0 +1,15 @@
+{
+  "name": "hardhat",
+  "version": "1.0.0",
+  "description": "Unit testing for Metana week 3 and 4 contracts.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^1.0.1",
+    "hardhat": "^2.10.0"
+  }
+}
