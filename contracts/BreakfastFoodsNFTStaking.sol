@@ -4,6 +4,7 @@ pragma solidity 0.8.7;
 
 import "./BreakfastFoodsNFTFree.sol";
 import "./BreakfastCoinStaking.sol";
+import "hardhat/console.sol";
 
 /**
  * @dev 'BreakfastFoodsNFTStaking' implementation of the 'BreakfastFoodsNFT' token.
@@ -69,9 +70,10 @@ contract BreakfastFoodsNFTStaking is BreakfastFoodsNFTFree {
     {
         // Calculate total time elapsed since earliest withdrawal time
         uint256 timeElapsed = block.timestamp - _withdrawalTimes[tokenId];
+
         // Calculate remaining time to account for in new withdrawal time
-        uint256 leftOver = (block.timestamp - _withdrawalTimes[tokenId]) -
-            (timeElapsed / REWARD_PERIOD);
+        uint256 leftOver = timeElapsed -
+            ((timeElapsed / REWARD_PERIOD) * REWARD_PERIOD);
 
         _withdrawalTimes[tokenId] =
             block.timestamp +
@@ -118,6 +120,7 @@ contract BreakfastFoodsNFTStaking is BreakfastFoodsNFTFree {
             rewardPeriods * 10 ether,
             msg.sender
         );
+        // breakfastCoinContract._mint(msg.sender, rewardPeriods * 10 ether);
 
         updateWithdrawalTimes(tokenId, rewardPeriods);
     }
