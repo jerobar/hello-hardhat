@@ -67,7 +67,7 @@ describe('BreakfastCoinStaking', function () {
    * Minting
    * - Should add minting address
    * - Should mint to address
-   * - Should properly revert non-minting address' mint attempts
+   * - Should properly revert non-minting address mint attempt
    */
   describe('Minting', function () {
     it('Should add minting address', async function () {
