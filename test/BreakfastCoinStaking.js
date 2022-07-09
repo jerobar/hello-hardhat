@@ -67,6 +67,7 @@ describe('BreakfastCoinStaking', function () {
    * Minting
    * - Should add minting address
    * - Should mint to address
+   * - Should properly revert non-minting address' mint attempts
    */
   describe('Minting', function () {
     it('Should add minting address', async function () {
@@ -105,6 +106,23 @@ describe('BreakfastCoinStaking', function () {
       expect(
         await breakfastCoinStakingContract.balanceOf(mintToAddress)
       ).to.equal(1)
+    })
+
+    it('Should properly revert non-minting address mint attempt', async function () {
+      const { breakfastCoinStakingContract } = await loadFixture(
+        deployBreakfastCoinStaking
+      )
+      const [, nonMinting, mintTo] = await ethers.getSigners()
+      const mintToAddress = mintTo.address
+
+      // Test non-minting address is blocked from minting
+      await expect(
+        breakfastCoinStakingContract
+          .connect(nonMinting)
+          .mintToAddress(1, mintToAddress)
+      ).to.be.revertedWith(
+        'BreakfastCoinStaking: Feature only available to minting addresses'
+      )
     })
   })
 })
