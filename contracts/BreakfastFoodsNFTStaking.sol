@@ -65,9 +65,7 @@ contract BreakfastFoodsNFTStaking is BreakfastFoodsNFTFree {
      * e.g. 50 hours = 2 reward periods and 2 hours 'left over' counting
      * toward next reward time.
      */
-    function updateWithdrawalTimes(uint256 tokenId, uint256 rewardPeriods)
-        private
-    {
+    function updateWithdrawalTimes(uint256 tokenId) private {
         // Calculate total time elapsed since earliest withdrawal time
         uint256 timeElapsed = block.timestamp - _withdrawalTimes[tokenId];
 
@@ -122,7 +120,7 @@ contract BreakfastFoodsNFTStaking is BreakfastFoodsNFTFree {
         );
         // breakfastCoinContract._mint(msg.sender, rewardPeriods * 10 ether);
 
-        updateWithdrawalTimes(tokenId, rewardPeriods);
+        updateWithdrawalTimes(tokenId);
     }
 
     /**
