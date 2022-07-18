@@ -185,7 +185,7 @@ describe('NumbersToken', function () {
       const { numbersToken } = await loadFixture(deployNumbersToken)
 
       // Test that invalid trade request is inverted
-      expect(await numbersToken.trade(0, 0)).to.be.revertedWith(
+      await expect(numbersToken.trade(0, 0)).to.not.be.revertedWith(
         'NumbersToken: Cannot trade for that token'
       )
     })
@@ -194,7 +194,7 @@ describe('NumbersToken', function () {
       const { numbersToken } = await loadFixture(deployNumbersToken)
 
       // Test that invalid trade request is inverted
-      expect(await numbersToken.trade(0, 1)).to.be.revertedWith(
+      await expect(numbersToken.trade(0, 1)).to.not.be.revertedWith(
         'NumbersToken: Cannot trade for that token'
       )
     })
@@ -203,7 +203,7 @@ describe('NumbersToken', function () {
       const { numbersToken } = await loadFixture(deployNumbersToken)
 
       // Test that invalid trade request is inverted
-      expect(await numbersToken.trade(0, 2)).to.be.revertedWith(
+      await expect(numbersToken.trade(0, 2)).to.not.be.revertedWith(
         'NumbersToken: Cannot trade for that token'
       )
     })
