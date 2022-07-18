@@ -186,9 +186,9 @@ contract NumbersToken is ERC1155, IERC1155Receiver {
         uint256[] memory ids,
         uint256[] memory amounts
     ) private pure returns (uint256, uint256) {
-        bool zeroIdFlag;
-        uint256 sumOfTokenIds;
-        uint256 amountToMint;
+        bool zeroIdFlag = false;
+        uint256 sumOfTokenIds = 0;
+        uint256 amountToMint = 0;
 
         // Check for zero id, sum id's, and calculate amount to mint
         for (uint256 i = 0; i < ids.length; ++i) {
